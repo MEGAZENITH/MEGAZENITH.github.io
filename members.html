@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="shortcut icon" href="LOPOO.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Zenith-members</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff4d4d;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Members Grid */
+        .members {
+            padding: 60px 0;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .member-card {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 20px;
+        }
+
+        .member-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff4d4d;
+        }
+
+        .member-info p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member-social a {
+            color: #ffffff;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .member-social a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            background-color: #1a1a2e;
+            color: white;
+            font-size: 16px;
+            padding-right: 50px;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .page-header p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Mega Zenith</div>
+                <div class="nav-links">
+                   
+                    <a href="INDEX.html">Home</a>
+                    <a href="review.html">Reviews</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact us.html">Games We Play</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Members</h1>
+            <p>Meet the passionate gamers who make up our community</p>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search members..." id="memberSearch">
+            <button class="search-button">🔍</button>
+        </div>
+    </div>
+
+    <!-- Members Grid -->
+    <section class="members">
+        <div class="container">
+            <div class="members-grid" id="membersGrid">
+                <!-- Members will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>✉ adhilu495@gmail.com</h3>
+            <h3>📞 9778566144</h3>
+            <p>© 2024 GameHub. Designed for gamers, by gamers.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample member data
+        const members = [
+            {
+                name: "MZ DHILU",
+                role: "PC GAME Expert",
+                image:"adl.png",
+                bio: "Competitive shooter player with 10+ years experience",
+                social: ["twitter", "twitch"]
+            },
+            {
+                name: "MZ RAYYUTAN",
+                role: "HEAD SHOOT EXPERT",
+                image: " rayyu.png",
+                bio: "Loves deep story-driven games and character building",
+                social: ["instagram", "youtube"]
+            },
+            {
+                name: "MZ BRUNO",
+                role: "VERATAN",
+                image: "amor.png",
+                bio: "Specializes in discovering hidden gem indie titles",
+                social: ["twitter", "discord"]
+            },
+            {
+                name: "MZ JOKER",
+                role: "LOOT EXPERT",
+                image: "swl.png",
+                bio: "Holds multiple world records in classic platformers",
+                social: ["twitch", "youtube"]
+            },
+            {
+                name: "MZ KINGCOBRA",
+                role: " THE EFOOTBALL MAGICIAN ",
+                image: "musthu.PNG",
+                bio: "Played every major MMO since Ultima Online",
+                social: ["twitter", "discord"]
+            },
+              {
+                name: "MZ shammu",
+                role: "FF Expert",
+                image:"shammu.png",
+                bio: "Competitive shooter player with 7+ years experience",
+                social: ["twitter", "twitch"]
+            },  {
+                name: "MZ ALEN",
+                role: "FF Expert",
+                image:"money.png",
+                bio: "Competitive shooter player with 1+ years experience",
+                social: ["twitter", "twitch"]
+            },
+   
+        ];
+
+        // Function to render members
+        function renderMembers(memberList) {
+            const membersGrid = document.getElementById('membersGrid');
+            membersGrid.innerHTML = '';
+            
+            memberList.forEach(member => {
+                const memberCard = document.createElement('div');
+                memberCard.className = 'member-card';
+                
+                // Get social icons
+                const socialIcons = member.social.map(platform => {
+                    let icon;
+                    switch(platform) {
+                        case 'twitter': icon = '🐦'; break;
+                        case 'twitch': icon = '🎮'; break;
+                        case 'youtube': icon = '📺'; break;
+                        case 'instagram': icon = '📷'; break;
+                        case 'discord': icon = '💬'; break;
+                        case 'github': icon = '💻'; break;
+                        default: icon = '🔗';
+                    }
+                    return `<a href="#" title="${platform}">${icon}</a>`;
+                }).join('');
+                
+                memberCard.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" class="member-img">
+                    <div class="member-info">
+                        <h3>${member.name}</h3>
+                        <p><em>${member.role}</em></p>
+                        <p>${member.bio}</p>
+                        <div class="member-social">${socialIcons}</div>
+                    </div>
+                `;
+                
+                membersGrid.appendChild(memberCard);
+            });
+        }
+
+        // Search functionality
+        document.getElementById('memberSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredMembers = members.filter(member => 
+                member.name.toLowerCase().includes(searchTerm) || 
+                member.role.toLowerCase().includes(searchTerm) ||
+                member.bio.toLowerCase().includes(searchTerm)
+            );
+            renderMembers(filteredMembers);
+        });
+
+        // Initial render
+        renderMembers(members);
+    </script>
+</body>
+</html>

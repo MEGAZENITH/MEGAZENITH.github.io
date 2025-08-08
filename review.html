@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="shortcut icon" href="LOPOO.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Zenith- Reviews</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff4d4d;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 60px 0;
+        }
+
+        .search-sort {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .search-box {
+            flex-grow: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            background-color: #1a1a2e;
+            color: white;
+            font-size: 16px;
+            padding-right: 50px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff4d4d;
+        }
+
+        .sort-dropdown {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-header {
+            position: relative;
+        }
+
+        .review-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .review-score {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #ff4d4d;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .review-content {
+            padding: 20px;
+        }
+
+        .review-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff4d4d;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .review-excerpt {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #ff4d4d;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .review-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background-color: #0f0f1a;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        /* Review Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 28px;
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+
+        .modal-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .modal-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .page-header p {
+                font-size: 16px;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .search-sort {
+                flex-direction: column;
+            }
+            .search-box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Mega Zenith</div>
+                <div class="nav-links">
+                   
+                    <a href="INDEX.html">Home</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="members.html">Members</a>
+                    <a href="contact us.html">Games we play</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Game Reviews</h1>
+            <p>Honest and in-depth reviews to help you choose your next game</p>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <div class="search-sort">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search reviews..." id="searchInput">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <select class="sort-dropdown" id="sortSelect">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="highest">Highest Rated</option>
+                    <option value="lowest">Lowest Rated</option>
+                </select>
+            </div>
+
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews will be added dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-meta">
+                    <span id="modalAuthor"></span>
+                    <span id="modalDate"></span>
+                    <span id="modalScore"></span>
+                </div>
+                <img src="" alt="" class="modal-img" id="modalImg">
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>✉ adhilu495@gmail.com</h3>
+            <h3>📞 9778566144</h3>
+            <p>© 2024 GameHub. Designed for gamers, by gamers.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample review data
+        const reviews = [
+            {
+                title: "team heroic",
+                author: "Mz Rayyutan",
+                date: "june 6, 2025",
+                score: 97,
+                image: "heroic.png",
+                excerpt: "Team Heroic has made a powerful mark in the world of Free Fire with their incredible dedication and next-level gameplay.",
+                content: "<p>Elden Ring represents a monumental achievement in game design, blending FromSoftware's signature challenging combat with a vast, interconnected open world that begs to be explored. The Lands Between is filled with secrets, dangerous enemies, and breathtaking vistas that make every journey rewarding.</p><p>The combat system builds upon the Souls series foundation, offering more flexibility with the addition of mounted combat and spirit summons. The game's difficulty is balanced by these new mechanics, allowing players to approach challenges in multiple ways.</p><p>What truly sets Elden Ring apart is its world design. Unlike many open world games that feel like checklists of activities, every corner of The Lands Between feels intentionally crafted, with environmental storytelling that rivals the best in the industry.</p>",
+                tags: ["RPG", "Open World", "Souls-like"]
+            },
+            {
+                title: "efootball 3000",
+                author: "Mz Dhilu",
+                date: "july 8 , 2025",
+                score: 98,
+                image: "3000.png",
+                excerpt: "Achieving eFootball 3000 is a major milestone that showcases a player’s tactical brilliance and team-building mastery in the world of eFootball.",
+                content: "<p>Horizon Forbidden West takes everything that worked in Zero Dawn and improves upon it in nearly every way. The combat is more varied, with new weapons and abilities that make taking down machines even more satisfying. The skill tree has been expanded, allowing for more specialized builds.</p><p>Visually, this is one of the most impressive games ever made. The attention to detail in the environments and character models is staggering, especially on PS5. The underwater sections are particularly breathtaking, with realistic lighting and fluid movement.</p><p>The story continues Aloy's journey in compelling ways, though some narrative beats feel predictable. Side quests are vastly improved over the first game, with more meaningful stories and characters that feel like real people.</p>",
+                tags: ["Action", "Open World", "Adventure"]
+            },
+            {
+                title: "farcry primal completion",
+                author: " Mz joker",
+                date: "august 10, 2025",
+                score: 97,
+                image: "fark.png",
+                excerpt: "Completing Far Cry Primal is a remarkable achievement that reflects a player’s survival instincts, strategic thinking, and deep immersion in the Stone Age world.",
+                content: "<p>God of War Ragnarök improves upon its predecessor in every conceivable way. The combat is more fluid and varied, with new weapons and abilities that keep encounters fresh throughout the 30+ hour adventure. The Leviathan Axe and Blades of Chaos feel better than ever, and new additions to Kratos' arsenal add welcome variety.</p><p>The story is where Ragnarök truly shines. The relationship between Kratos and Atreus evolves in surprising and emotionally resonant ways. The writing is superb, with excellent performances from the entire cast. The game tackles themes of parenthood, legacy, and destiny with surprising nuance.</p><p>The world design is more open than the 2018 game, with more opportunities for exploration and rewarding side content. The puzzles are clever and well-integrated into the environments.</p>",
+                tags: ["Action", "Adventure", "Story-Driven"]
+            },
+            {
+                title: "god of war completion",
+                author: " Mz rayyutan",
+                date: "December 5, 2025",
+                score: 97,
+                image: "god.png",
+                excerpt: "Completing God of War is more than just finishing a game — it's a legendary achievement that reflects true dedication, skill, and patience.",
+                content: "<p>Modern Warfare II delivers exactly what you'd expect from a Call of Duty game - polished gunplay, impressive production values, and a by-the-numbers campaign. The shooting feels as good as ever, with satisfying weapon feedback and movement that strikes a good balance between realism and arcade action.</p><p>The campaign is entertaining but forgettable, with set pieces that feel recycled from previous entries. The story attempts to tackle some modern geopolitical themes but lacks the nuance to do them justice. The characters are likable enough, but their arcs feel underdeveloped.</p><p>Multiplayer is where the game shines, with well-designed maps and the tight gameplay the series is known for. The new progression system adds some welcome depth, though longtime fans may find the changes unnecessary.</p>",
+                tags: ["FPS", "Multiplayer", "Action"]
+            }
+        ];
+
+        // Render reviews
+        function renderReviews(reviewList) {
+            const reviewsGrid = document.getElementById('reviewsGrid');
+            reviewsGrid.innerHTML = '';
+            
+            reviewList.forEach((review, index) => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.dataset.index = index;
+                
+                // Get score color
+                let scoreColor = '#ff4d4d';
+                if (review.score >= 85) scoreColor = '#4CAF50';
+                else if (review.score >= 70) scoreColor = '#FFC107';
+                
+                // Get tags
+                const tags = review.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                
+                reviewCard.innerHTML = `
+                    <div class="review-header">
+                        <img src="${review.image}" alt="${review.title}" class="review-img">
+                        <div class="review-score" style="background-color: ${scoreColor}">${review.score}</div>
+                    </div>
+                    <div class="review-content">
+                        <h3 class="review-title">${review.title}</h3>
+                        <div class="review-meta">
+                            <span>By ${review.author}</span>
+                            <span>${review.date}</span>
+                        </div>
+                        <p class="review-excerpt">${review.excerpt}</p>
+                        <a href="#" class="read-more" data-index="${index}">Read Full Review</a>
+                        <div class="review-tags">${tags}</div>
+                    </div>
+                `;
+                
+                reviewsGrid.appendChild(reviewCard);
+            });
+            
+            // Add click event to read more buttons
+            document.querySelectorAll('.read-more').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const index = parseInt(this.dataset.index);
+                    openModal(index);
+                });
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredReviews = reviews.filter(review => 
+                review.title.toLowerCase().includes(searchTerm) || 
+                review.author.toLowerCase().includes(searchTerm) ||
+                review.excerpt.toLowerCase().includes(searchTerm) ||
+                review.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+            );
+            renderReviews(filteredReviews);
+        });
+
+        // Sort functionality
+        document.getElementById('sortSelect').addEventListener('change', function(e) {
+            const sortBy = e.target.value;
+            let sortedReviews = [...reviews];
+            
+            switch(sortBy) {
+                case 'newest':
+                    sortedReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+                case 'oldest':
+                    sortedReviews.sort((a, b) => new Date(a.date) - new Date(b.date));
+                    break;
+                case 'highest':
+                    sortedReviews.sort((a, b) => b.score - a.score);
+                    break;
+                case 'lowest':
+                    sortedReviews.sort((a, b) => a.score - b.score);
+                    break;
+            }
+            
+            renderReviews(sortedReviews);
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('reviewModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalAuthor = document.getElementById('modalAuthor');
+        const modalDate = document.getElementById('modalDate');
+        const modalScore = document.getElementById('modalScore');
+        const modalImg = document.getElementById('modalImg');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.getElementById('closeModal');
+        
+        function openModal(index) {
+            const review = reviews[index];
+            
+            // Get score color
+            let scoreColor = '#ff4d4d';
+            if (review.score >= 85) scoreColor = '#4CAF50';
+            else if (review.score >= 70) scoreColor = '#FFC107';
+            
+            modalTitle.textContent = review.title;
+            modalAuthor.textContent = `By ${review.author}`;
+            modalDate.textContent = review.date;
+            modalScore.innerHTML = `Score: <span style="color: ${scoreColor}">${review.score}</span>`;
+            modalImg.src = review.image;
+            modalImg.alt = review.title;
+            modalBody.innerHTML = review.content;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModalFunc() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        closeModal.addEventListener('click', closeModalFunc);
+        
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModalFunc();
+            }
+        });
+        
+        // Initial render (sorted by newest first)
+        const sortedReviews = [...reviews].sort((a, b) => new Date(b.date) - new Date(a.date));
+        renderReviews(sortedReviews);
+    </script>
+</body>
+</html>

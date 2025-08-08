@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Mega Zenith - Ultimate Gaming Group</title>
+    <style>
+        /* Inherit the main styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Join Us Section */
+        .join-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .join-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #ff4d4d;
+        }
+
+        .join-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .join-option {
+            background-color: #1a1a2e;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            transition: transform 0.3s;
+        }
+
+        .join-option:hover {
+            transform: translateY(-10px);
+        }
+
+        .join-option h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #ff4d4d;
+        }
+
+        .join-form {
+            background-color: #1a1a2e;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: #0f0f1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .submit-btn {
+            background-color: #ff4d4d;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #ff3333;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #1a2e1a;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .join-option {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Mega Zenith</div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="review.html">Reviews</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="members.html">Members</a>
+                    <a href="contact us.html">Games We Play</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Join Us Section -->
+    <section class="join-section">
+        <div class="container">
+            <h2>Join Mega Zenith Gaming Group</h2>
+            <p>Become part of our thriving gaming community and enjoy exclusive benefits</p>
+            
+            <div class="join-container">
+                <div class="join-option">
+                    <h3>Casual Member</h3>
+                    <p>Join our community, participate in events, and connect with fellow gamers.</p>
+                    <ul style="text-align: left; margin-top: 15px; padding-left: 20px;">
+                        <li>Access to community Discord</li>
+                        <li>Participate in weekly game nights</li>
+                        <li>Game discussion forums</li>
+                    </ul>
+                </div>
+                
+                <div class="join-option">
+                    <h3>Competitive Player</h3>
+                    <p>For those who want to compete in tournaments and ranked play.</p>
+                    <ul style="text-align: left; margin-top: 15px; padding-left: 20px;">
+                        <li>All Casual benefits plus:</li>
+                        <li>Team practice sessions</li>
+                        <li>Tournament participation</li>
+                        <li>Coaching opportunities</li>
+                    </ul>
+                </div>
+                
+                <div class="join-option">
+                    <h3>Content Creator</h3>
+                    <p>For streamers, YouTubers, and gaming content creators.</p>
+                    <ul style="text-align: left; margin-top: 15px; padding-left: 20px;">
+                        <li>All Competitive benefits plus:</li>
+                        <li>Collaboration opportunities</li>
+                        <li>Promotion on our platforms</li>
+                        <li>Early access to events</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="join-form">
+                <h3>Application Form</h3>
+                <form id="joinForm" action="https://formspree.io/f/xbjndqyv" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gaming-id">Main Gaming ID/Username</label>
+                        <input type="text" id="gaming-id" name="gaming-id" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="games">Main Games You Play</label>
+                        <input type="text" id="games" name="games" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="membership-type">Membership Type</label>
+                        <select id="membership-type" name="membership-type" required>
+                            <option value="">Select one</option>
+                            <option value="casual">Casual Member</option>
+                            <option value="competitive">Competitive Player</option>
+                            <option value="creator">Content Creator</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="about">Tell us about yourself and why you want to join</label>
+                        <textarea id="about" name="about" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn"><a href="index.html">Submit Application</a></button>
+                </form>
+                <div id="successMessage" class="success-message">
+                    <h3>Thank you for your application!</h3>
+                    <p>We've received your submission and will contact you soon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>✉ adhilu495@gmail.com</h3>
+            <h3>📞 9778566144</h3>
+            <p>© 2024 Mega Zenith. Designed for gamers, by gamers.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get the form data
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Send the form data using Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    // Reset form
+                    form.reset();
+                    // Scroll to success message
+                    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form. Please try again later.');
+            });
+        });
+    </script>
+</body>
+</html>
