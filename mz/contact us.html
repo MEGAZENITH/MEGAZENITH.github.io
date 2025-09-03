@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="LOPOO.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games We Play - Mega Zenith</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0f0f1a;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #1a1a2e;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff4d4d;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4d4d;
+        }
+
+        /* Games Section */
+        .games {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .games h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #ff4d4d;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .game-card {
+            background-color: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .game-card:hover .game-image img {
+            transform: scale(1.05);
+        }
+
+        .game-info {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .game-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff4d4d;
+        }
+
+        .game-info p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .game-rating {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .play-button {
+            display: inline-block;
+            background-color: #ff4d4d;
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .play-button:hover {
+            background-color: #ff3333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a2e;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Mega Zenith</div>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="review.html">Reviews</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="members.html">Members</a>
+          
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Games Section -->
+    <section class="games">
+        <div class="container">
+            <h2>Games We Play</h2>
+            <p>Check out our favorite games that we play as a community</p>
+            
+            <div class="games-grid">
+                <!-- Game 1 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="criminal.png" alt="Free Fire">
+                    </div>
+                    <div class="game-info">
+                        <h3>Free fire</h3>
+                        <p>Free Fire is one of the most popular battle royale games in the world, known for its fast-paced action, strategic gameplay, and intense 10-minute survival matches.</p>
+                        <p class="game-rating">★★★★★</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game 2 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="farcry.png"alt="Fortnite">
+                    </div>
+                    <div class="game-info">
+                        <h3>farcry primal</h3>
+                        <p>farcry primal is adventure and survival game.</p>
+                        <p class="game-rating">★★★★☆ 4.0/5</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game 3 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="call.png" alt="Call of Duty">
+                    </div>
+                    <div class="game-info">
+                        <h3>Call of Duty</h3>
+                        <p>Iconic FPS franchise with various game modes and competitive play.</p>
+                        <p class="game-rating">★★★★★ 4.5/5</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game 4 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="god.png" alt="Apex Legends">
+                    </div>
+                    <div class="game-info">
+                        <h3>god of war</h3>
+                        <p>god of war is adventure action high graphical game.</p>
+                        <p class="game-rating">★★★★☆ 4.3/5</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game 5 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="mine.png" alt="Minecraft">
+                    </div>
+                    <div class="game-info">
+                        <h3>Minecraft</h3>
+                        <p>Sandbox game where creativity meets survival in blocky worlds.</p>
+                        <p class="game-rating">★★★★★ 4.8/5</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <!-- Game 6 -->
+                <div class="game-card">
+                    <div class="game-image">
+                        <img src="GTA.png" alt="GTA V">
+                    </div>
+                    <div class="game-info">
+                        <h3>GTA V</h3>
+                        <p>Open-world action-adventure with endless possibilities in Los Santos.</p>
+                        <p class="game-rating">★★★★★ 4.7/5</p>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Mega Zenith. Designed for gamers, by gamers.</p>
+            <div class="contact-info">
+                <p>✉ adhilu495@gmail.com | 📞 9778566144</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
